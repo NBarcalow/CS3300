@@ -22,10 +22,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'mini_racer'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'bootstrap', '~> 5.0.0.beta2'
+gem 'jquery-rails'
+gem 'friendly_id', '~> 5.4.0'
 
 # Use ActiveStorage variant
 group :production do
@@ -43,7 +48,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-	gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
