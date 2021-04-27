@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "projects/index", type: :view do
+RSpec.describe "portfolio_projects/index", type: :view do
   before(:each) do
-    assign(:projects, [
-      Project.create!(
+    assign(:portfolio_projects, [
+      PortfolioProject.create!(
         :title => "Title",
         :description => "MyText",
         :slug => "Slug"
       ),
-      Project.create!(
+      PortfolioProject.create!(
         :title => "Title",
         :description => "MyText",
         :slug => "Slug"
@@ -16,7 +16,7 @@ RSpec.describe "projects/index", type: :view do
     ])
   end
 
-  it "renders a list of projects" do
+  it "renders a list of portfolio_projects" do
     render
     assert_select "tr>td", :text => "Title".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
