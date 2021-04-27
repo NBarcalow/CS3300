@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe PortfolioProjectsController, type: :controller do
+RSpec.describe ProjectsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # PortfolioProject. As you add validations to PortfolioProject, be sure to
+  # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe PortfolioProjectsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # PortfolioProjectsController. Be sure to keep this updated too.
+  # ProjectsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      PortfolioProject.create! valid_attributes
+      Project.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe PortfolioProjectsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      portfolio_project = PortfolioProject.create! valid_attributes
-      get :show, params: {id: portfolio_project.to_param}, session: valid_session
+      project = Project.create! valid_attributes
+      get :show, params: {id: project.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe PortfolioProjectsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      portfolio_project = PortfolioProject.create! valid_attributes
-      get :edit, params: {id: portfolio_project.to_param}, session: valid_session
+      project = Project.create! valid_attributes
+      get :edit, params: {id: project.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new PortfolioProject" do
+      it "creates a new Project" do
         expect {
-          post :create, params: {portfolio_project: valid_attributes}, session: valid_session
-        }.to change(PortfolioProject, :count).by(1)
+          post :create, params: {project: valid_attributes}, session: valid_session
+        }.to change(Project, :count).by(1)
       end
 
-      it "redirects to the created portfolio_project" do
-        post :create, params: {portfolio_project: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(PortfolioProject.last)
+      it "redirects to the created project" do
+        post :create, params: {project: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Project.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {portfolio_project: invalid_attributes}, session: valid_session
+        post :create, params: {project: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe PortfolioProjectsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested portfolio_project" do
-        portfolio_project = PortfolioProject.create! valid_attributes
-        put :update, params: {id: portfolio_project.to_param, portfolio_project: new_attributes}, session: valid_session
-        portfolio_project.reload
+      it "updates the requested project" do
+        project = Project.create! valid_attributes
+        put :update, params: {id: project.to_param, project: new_attributes}, session: valid_session
+        project.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the portfolio_project" do
-        portfolio_project = PortfolioProject.create! valid_attributes
-        put :update, params: {id: portfolio_project.to_param, portfolio_project: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(portfolio_project)
+      it "redirects to the project" do
+        project = Project.create! valid_attributes
+        put :update, params: {id: project.to_param, project: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(project)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        portfolio_project = PortfolioProject.create! valid_attributes
-        put :update, params: {id: portfolio_project.to_param, portfolio_project: invalid_attributes}, session: valid_session
+        project = Project.create! valid_attributes
+        put :update, params: {id: project.to_param, project: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested portfolio_project" do
-      portfolio_project = PortfolioProject.create! valid_attributes
+    it "destroys the requested project" do
+      project = Project.create! valid_attributes
       expect {
-        delete :destroy, params: {id: portfolio_project.to_param}, session: valid_session
-      }.to change(PortfolioProject, :count).by(-1)
+        delete :destroy, params: {id: project.to_param}, session: valid_session
+      }.to change(Project, :count).by(-1)
     end
 
-    it "redirects to the portfolio_projects list" do
-      portfolio_project = PortfolioProject.create! valid_attributes
-      delete :destroy, params: {id: portfolio_project.to_param}, session: valid_session
-      expect(response).to redirect_to(portfolio_projects_url)
+    it "redirects to the projects list" do
+      project = Project.create! valid_attributes
+      delete :destroy, params: {id: project.to_param}, session: valid_session
+      expect(response).to redirect_to(projects_url)
     end
   end
 

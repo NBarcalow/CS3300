@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "portfolio_projects/show", type: :view do
+RSpec.describe "projects/show", type: :view do
   before(:each) do
-    @portfolio_project = assign(:portfolio_project, PortfolioProject.create!(
+    @project = assign(:project, Project.create!(
       :title => "Title",
       :description => "MyText",
       :slug => "Slug"
